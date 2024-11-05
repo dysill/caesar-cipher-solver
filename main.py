@@ -30,7 +30,7 @@ def decrypt_caesar(file_name):
                 word = ''.join(shifted_word)
                 if word in word_set:
                     shift_scores[shift] += 1
-            shifted_word = []
+                shifted_word = []
         if shifted_word:
             word = ''.join(shifted_word)
             if word in word_set:
@@ -40,7 +40,7 @@ def decrypt_caesar(file_name):
 
     # have best shift so now write output.
     with open('output.txt', 'w') as out_file:
-        for char in in_file.read():
+        for char in text:
             if char.isalpha():
                 if char.islower():
                     shifted_char = chr((ord(char) - ord('a') + best_shift) % 26 + ord('a'))
