@@ -15,7 +15,7 @@ def decrypt_caesar(file_name):
     # now open the given file and count the number occurrences of words that are in word_set for every shift.
     shift_scores = {shift: 0 for shift in range(26)}
 
-    with open('caesar_cipher_text.txt', 'r') as in_file:
+    with open(file_name, 'r') as in_file:
         text = in_file.read()
 
     for shift in range(26):
@@ -56,7 +56,10 @@ def main():
     Main program prompts user in console for file name then outputs the shift that was made to solve the cipher and
     where the decrypted message is.
     """
-    result = decrypt_caesar('test_file.txt')
+    input_file_name = input("Enter file name that has the encrypted text (empty for default): ")
+    if not input_file_name:
+        input_file_name = 'caesar_cipher_text.txt'
+    result = decrypt_caesar(input_file_name)
     print(f'Most accurate shift amount: {result[0]}')
     print(f'Number of common words after decryption: {result[1]}')
     print('Decrypted message stored in output.txt')
